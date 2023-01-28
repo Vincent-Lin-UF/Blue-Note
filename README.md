@@ -2,11 +2,9 @@
 
 This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27/23-1/29/23. Please check out our [DevPost](https://swamphacks-ix.devpost.com/)!
 
-![Homepage](https://github.com/Antonio-Villarreal/Dyscovery/blob/main/Images/Home.png)
-
 ## Table of Contents
 - [Inspiration](#inspiration)
-- [What is Dyscovery?](#what-is-dyscovery)
+- [What is Blue Note?](#what-is-bluenote)
 - [How we built it](#how-we-built-it)
 - [Challenges](#challenges)
 - [Accomplishments](#accomplishments)
