@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import { getFirestore } from 'firebase/firestore'
 import { collection, addDoc } from 'firebase/firestore';
-import { app } from '../firebase'
+import { app } from '../firebase';
+
+import { Button } from 'react-bootstrap';
 
 const db = getFirestore(app); // initialize cloud firestore and reference
 
@@ -39,12 +41,12 @@ const Account = () => {
       <h1>Account</h1>
       <p>User Email: {user && user.email}</p>
 
-      <button onClick={handleLogout}>
+      <Button onClick={handleLogout}>
         Logout
-      </button>
-      <button onClick={addData}>
+      </Button>
+      <Button onClick={addData}>
         add data
-      </button>
+      </Button>
 
     </div>
   );
