@@ -93,7 +93,7 @@ const Signin = () => {
 
                   <h5 className="mt-5">
                     Don't have an account yet?{" "}
-                    <Link to="/signup">Sign up.</Link>
+                    <Link to="/signup">Sign up</Link>
                   </h5>
                 </div>
               </div>
