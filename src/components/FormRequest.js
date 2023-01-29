@@ -21,7 +21,7 @@ export function FormRequest() {
     const answer = requestRef.current.value;
     const videoId = answer.split("v=")[1];
 
-    await fetch("/summary", {
+    await fetch("http://127.0.0.1:5000/summary", {
       method: ["POST"],
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(videoId),
@@ -31,7 +31,7 @@ export function FormRequest() {
         setSummary(data["prediction"]);
       });
 
-    await fetch("/topTen", {
+    await fetch("http://127.0.0.1:5000/topTen", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ videoId: videoId, genre: genreRef.current.value }),

@@ -9,26 +9,18 @@ export function NavBar() {
   const [showAddClassModal, setShowAddClassModal] = useState(false);
   const [showRemoveClassModal, setShowRemoveClassModal] = useState(false);
   const [locationClassesState, setLocationClassesState] = useState(false);
-  const [locationNotesState, setLocationNotesState] = useState(false);
 
   let location = useLocation();
 
   useEffect(() => {
     if (location.pathname === "/queries") {
       setLocationClassesState(true);
-    } else if (location.pathname === "/notes") {
-      setLocationNotesState(true);
     } else {
       setLocationClassesState(false);
-      setLocationNotesState(false);
     }
   }, [location]);
 
   const { clearRequests } = useRequests();
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
 
   return (
     <>
@@ -60,18 +52,8 @@ export function NavBar() {
                 </NavDropdown.Item>
               </NavDropdown>
             )}
-            {locationNotesState && (
-              <NavDropdown
-                menuVariant="dark"
-                title="Menu"
-                id="nav-dropdown-dark"
-                style={{ marginRight: "1vh" }}
-              >
-                <NavDropdown.Item onClick={handleSubmit}>
-                  Analyze
-                </NavDropdown.Item>
-              </NavDropdown>
-            )}
+            <Nav.Link href="/account">Account</Nav.Link>
+            <Nav.Link href="/chat">Chat</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
