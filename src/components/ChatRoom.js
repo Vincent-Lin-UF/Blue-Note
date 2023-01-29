@@ -1,31 +1,49 @@
-import { collection, addDoc, getFirestore, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getFirestore,
+  query,
+  onSnapshot,
+  QuerySnapshot,
+} from "firebase/firestore";
 import { app } from "../firebase";
 import { Button, Form } from "react-bootstrap";
 import { useRef } from "react";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export function ChatRoom() {
   const db = getFirestore(app); // initialize cloud firestore and reference
   const chatRef = useRef();
-  const [chats, setChats] = useState([]);
 
   const auth = getAuth(app);
   const [user, loading, error] = useAuthState(auth);
+  const [chats, setChats] = useState([]);
 
-  const getAllData = async () => {
-    const querySnapshot = await getDocs(collection(db, "user_messages"));
-    console.log(user);
-    querySnapshot.forEach((doc) => {
-      setChats((prevChats) => {
-        return [...prevChats, doc.data()];
+  //   const getAllData = async () => {
+  //     const querySnapshot = await getDocs(collection(db, "user_messages"))
+  //       .then((data) => setChats(data))
+
+  //     // querySnapshot.forEach((doc) => {
+  //     //   // doc.data() is never undefined for query doc snapshots
+
+  //     //   console.log(doc.id, " => ", doc.data());
+  //     // });
+  //   };
+
+  useEffect(() => {
+    const q = query(collection(db, "user_messages"));
+    const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
+      let todosArr = [];
+      QuerySnapshot.forEach((doc) => {
+        todosArr.push({ ...doc.data(), id: doc.id });
       });
-
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
+      setChats(todosArr);
     });
-  };
+    return () => unsubscribe();
+  });
 
   const addData = async (e) => {
     e.preventDefault();
@@ -50,8 +68,11 @@ export function ChatRoom() {
           Send
         </Button>
       </Form>
-      <Button onClick={getAllData}>Refresh</Button>
-      <p></p>
+      {/* <Button onClick={getAllData}>Refresh</Button> */}
+      {chats &&
+        chats.map((chat) => {
+          return <p>{chat.message}</p>;
+        })}
     </div>
   );
 }
