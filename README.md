@@ -1,4 +1,4 @@
-#  Blue Note - First Place Winner at Swamp Hacks
+#  Blue Note - First Place Winner at Swamp Hacks 2023
 
 This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27/23-1/29/23. Please check out our [DevPost](https://devpost.com/software/blue-note-1m70e3?ref_content=my-projects-tab&ref_feature=my_projects)!
 
