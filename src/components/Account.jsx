@@ -46,17 +46,26 @@ const Account = () => {
         position: "absolute",
       }}
     >
-      <div style={{ margin: "1vw" }}>
-        <h1 style={{ color: "white" }}>Account</h1>
-        <p style={{ color: "white" }}>User Email: {user && user.email}</p>
+      <div
+        style={{
+          margin: "1vw",
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <div>
+          <h1 style={{ color: "white" }}>Account</h1>
+          <p style={{ color: "white" }}>User Email: {user && user.email}</p>
 
-        <Button
-          variant="dark"
-          style={{ border: "2px solid gray" }}
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
+          <Button
+            variant="dark"
+            style={{ border: "2px solid gray" }}
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
+        </div>
       </div>
     </div>
   );

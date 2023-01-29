@@ -71,6 +71,7 @@ export function Notes() {
               }}
             >
               <Form.Group>
+                <h2 style={{ color: "white" }}>Notes</h2>
                 {/* <Form.Select
                   style={{
                     backgroundColor: "#343a40",
@@ -104,12 +105,11 @@ export function Notes() {
               <Form.Control
                 ref={notesRef}
                 type="text"
-                placeholder="Enter Notes"
                 as="textarea"
                 style={{
                   backgroundColor: "#343a40",
                   color: "white",
-                  height: "80vh",
+                  height: "78.5vh",
                   width: "50vw",
                   resize: "none",
                   marginTop: "1vh",
