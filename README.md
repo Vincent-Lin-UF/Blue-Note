@@ -3,7 +3,6 @@
 This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27/23-1/29/23. Please check out our [DevPost](https://swamphacks-ix.devpost.com/)!
 
 ## Table of Contents
-- [How to Use](#how-to-use)
 - [Inspiration](#inspiration)
 - [What is Blue Note?](#what-is-bluenote)
 - [How we built it](#how-we-built-it)
@@ -12,9 +11,6 @@ This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27
 - [Team](#team)
 
 ---
-## How To Use
-1) You will need to create a .env file and put the following information in
-  -
 ## Inspiration
 Having to watch extensive and tedious videos on YouTube in an educational setting has consistently been a source of frustration for us. We believe that the essential content of these videos could be condensed and distilled into only the most important topics, thereby increasing our productivity.
 
