@@ -14,7 +14,7 @@ This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27
 ---
 ## How to Use
   1) Create an .env file at the project root directory
-  2) Input Firebase's Web Configuration in the following way
+  2) Input Firebase's Web Configuration in the .env file in the following way
   ```
 REACT_APP_API_KEY =XXXXXXXXXXXXXXXXXXXX
 REACT_APP_AUTH_DOMAIN =XXXXXXXXXXXXXXXXXXXX
@@ -23,12 +23,12 @@ REACT_APP_STORAGE_BUCKET =XXXXXXXXXXXXXXXXXXXX
 REACT_APP_MESSAGING_SENDER_ID =XXXXXXXXXXXXXXXXXXXX
 REACT_APP_APP_ID =XXXXXXXXXXXXXXXXXXXX
   ```
-  3) Input the following as it is
+  3) Input the following as it is in the .env file
   ```
 FLASK_APP=app
 FLASK_ENV=development
   ```
-  4) Go to OpenAI and obtain the OpenAI Key
+  4) Go to OpenAI, obtain the OpenAI Key, and input it in the .env file 
   ```
 OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXX
   ```
