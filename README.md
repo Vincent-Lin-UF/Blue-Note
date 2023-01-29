@@ -1,4 +1,4 @@
-#  Blue Note - 
+#  Blue Note
 
 This project was created for [Swamp Hacks](https://2023.swamphacks.com/) on 1/27/23-1/29/23. Please check out our [DevPost](https://swamphacks-ix.devpost.com/)!
 
