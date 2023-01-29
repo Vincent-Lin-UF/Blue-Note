@@ -31,6 +31,7 @@ export function NavBar() {
             <Nav.Link href="/summarize">Summarize</Nav.Link>
             <Nav.Link href="/notes">Notes</Nav.Link>
             <Nav.Link href="/queries">Classes</Nav.Link>
+            <Nav.Link href="/account">Account</Nav.Link>
             {locationClassesState && (
               <NavDropdown
                 id="nav-dropdown-dark"
@@ -52,8 +53,6 @@ export function NavBar() {
                 </NavDropdown.Item>
               </NavDropdown>
             )}
-            <Nav.Link href="/account">Account</Nav.Link>
-            <Nav.Link href="/chat">Chat</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

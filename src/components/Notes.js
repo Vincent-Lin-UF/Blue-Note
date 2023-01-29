@@ -16,6 +16,7 @@ export function Notes() {
     event.preventDefault();
     console.log(notesRef.current.value);
     setNotes(notesRef.current.value);
+    notesRef.current.value = notes;
     await fetch("http://127.0.0.1:5000/analyze", {
       method: ["POST"],
       headers: { "Content-Type": "application/json" },
@@ -52,64 +53,87 @@ export function Notes() {
 
   return (
     <>
-      <div style={{ display: "flex", margin: "1vw" }}>
-        <Form onSubmit={handleSubmit} key={uuidV4()}>
-          <div
+      <div
+        style={{
+          backgroundColor: "#000b24",
+          width: "100%",
+          position: "absolute",
+        }}
+      >
+        <div style={{ display: "flex", margin: "1vw" }}>
+          <Form onSubmit={handleSubmit} key={uuidV4()}>
+            <div
+              style={{
+                display: "flex",
+                width: "50vw",
+                // border: "1px solid red",
+                flexGrow: 1,
+              }}
+            >
+              <Form.Group>
+                {/* <Form.Select
+                  style={{
+                    backgroundColor: "#343a40",
+                    color: "white",
+                    width: "400px",
+                  }}
+                  ref={classRef}
+                  required
+                >
+                  {classes.map((classType) => {
+                    if (classType.title !== "No Class") {
+                      return (
+                        <option key={classType.id} value={classType.title}>
+                          {classType.title}
+                        </option>
+                      );
+                    }
+                  })}
+                </Form.Select> */}
+              </Form.Group>
+              <Button
+                variant="dark"
+                style={{ marginLeft: "auto", border: "2px solid gray" }}
+                type="submit"
+              >
+                Analyze
+              </Button>
+            </div>
+
+            <Form.Group>
+              <Form.Control
+                ref={notesRef}
+                type="text"
+                placeholder="Enter Notes"
+                as="textarea"
+                style={{
+                  backgroundColor: "#343a40",
+                  color: "white",
+                  height: "80vh",
+                  width: "50vw",
+                  resize: "none",
+                  marginTop: "1vh",
+                }}
+              />
+            </Form.Group>
+          </Form>
+          <p
             style={{
-              display: "flex",
+              padding: "1vw",
+              paddingTop: "0.5vw",
+              border: "1px solid #c7c7c7",
+              borderRadius: "5px",
+              marginLeft: "0.5vw",
+              height: "86.6vh",
               width: "50vw",
-              // border: "1px solid red",
-              flexGrow: 1,
+              color: "white",
             }}
           >
-            <Form.Group>
-              <Form.Select ref={classRef} required style={{ width: "400px" }}>
-                {classes.map((classType) => {
-                  if (classType.title !== "No Class") {
-                    return (
-                      <option key={classType.id} value={classType.title}>
-                        {classType.title}
-                      </option>
-                    );
-                  }
-                })}
-              </Form.Select>
-            </Form.Group>
-            <Button style={{ marginLeft: "auto" }} type="submit">
-              Analyze
-            </Button>
-          </div>
-
-          <Form.Group>
-            <Form.Control
-              ref={notesRef}
-              type="text"
-              placeholder="Enter Notes"
-              as="textarea"
-              style={{
-                height: "80vh",
-                width: "50vw",
-                resize: "none",
-                marginTop: "1vh",
-              }}
-            />
-          </Form.Group>
-        </Form>
-        <p
-          style={{
-            padding: "1vw",
-            paddingTop: "0.5vw",
-            border: "1px solid #c7c7c7",
-            borderRadius: "5px",
-            marginLeft: "0.5vw",
-            height: "86.6vh",
-            width: "50vw",
-          }}
-        >
-          Sources:
-          <br />
-          {summary}
-        </p>
+            More on this:
+            <br />
+            {summary}
+          </p>
+        </div>
       </div>
     </>
   );

@@ -21,7 +21,6 @@ import { PastQueries } from "./components/PastQueries";
 import { Notes } from "./components/Notes";
 import { FormRequest } from "./components/FormRequest";
 import { RequestProvider } from "./context/RequestContext";
-import { ChatRoom } from "./components/ChatRoom";
 
 function App() {
   return (
@@ -39,16 +38,6 @@ function App() {
                 <ProtectedRoute>
                   <NavBar />
                   <FormRequest />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/chat"
-              element={
-                <ProtectedRoute>
-                  <NavBar />
-                  <ChatRoom />
                 </ProtectedRoute>
               }
             />

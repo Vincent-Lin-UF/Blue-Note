@@ -15,7 +15,13 @@ export function AddClassModal({ show, handleClose }) {
   }
   return (
     <Modal show={show} onHide={handleClose}>
-      <Form onSubmit={handleSubmit}>
+      <Form
+        style={{
+          backgroundColor: "#343a40",
+          color: "white",
+        }}
+        onSubmit={handleSubmit}
+      >
         <Modal.Header closeButton>
           <Modal.Title>New Class</Modal.Title>
         </Modal.Header>
@@ -26,7 +32,13 @@ export function AddClassModal({ show, handleClose }) {
           </Form.Group>
 
           <div className="d-flex justify-content-end">
-            <Button type="submit">Submit</Button>
+            <Button
+              style={{ border: "2px solid gray" }}
+              variant="dark"
+              type="submit"
+            >
+              Submit
+            </Button>
           </div>
         </Modal.Body>
       </Form>

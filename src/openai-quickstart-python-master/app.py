@@ -138,7 +138,7 @@ def generate_analysis(text):
     return f"""
     
     Notes: {text}
-    Find internet links based on these notes:
+    Generate more about this:
     """
 
 

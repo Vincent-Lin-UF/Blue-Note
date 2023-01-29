@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useRequests } from "../context/RequestContext";
 import { DictionaryList } from "./DictionaryList";
+import image from "../assets/wave.svg";
 
 export function FormRequest() {
-  const { addRequest, classes, addClass } = useRequests();
+  const { addRequest, classes } = useRequests();
   const requestRef = useRef();
   const [summary, setSummary] = useState();
   const [topTen, setTopTen] = useState();
@@ -65,91 +66,128 @@ export function FormRequest() {
   //   );
   // });
 
+  //#002142
+
   return (
     <>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-          margin: "0 auto",
-          width: "500px",
-          marginTop: "50px",
-          flexWrap: "wrap",
+          backgroundColor: "#000b24",
+          width: "100%",
+          position: "absolute",
         }}
       >
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Video URL</Form.Label>
-
-            <Form.Control
-              ref={requestRef}
-              type="text"
-              required
-              placeholder="Enter URL Here"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Video Title</Form.Label>
-
-            <Form.Control
-              ref={titleRef}
-              type="text"
-              required
-              placeholder="Enter Title Here"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Video Genre</Form.Label>
-
-            <Form.Control
-              ref={genreRef}
-              type="text"
-              required
-              placeholder="Enter Genre Here"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Class</Form.Label>
-            <Form.Select ref={classRef} required>
-              {classes.map((classType) => {
-                return (
-                  <option key={classType.id} value={classType.title}>
-                    {classType.title}
-                  </option>
-                );
-              })}
-            </Form.Select>
-          </Form.Group>
-
-          {buttonType ? (
-            <Button variant="secondary" type="submit" disabled>
-              Loading...
-            </Button>
-          ) : (
-            <Button variant="primary" type="submit">
-              Summarize
-            </Button>
-          )}
-        </Form>
-      </div>
-      {topTen && (
         <div
           style={{
             display: "flex",
-            margin: "5vw 2vw 5vw 2vw",
-            flexDirection: "row",
-            border: "3px solid gray",
-            borderRadius: "10px",
+            flexDirection: "column",
+            textAlign: "center",
+            margin: "0 auto",
+            width: "500px",
+            marginTop: "10px",
+            flexWrap: "wrap",
           }}
         >
-          <div style={{ width: "50vw", padding: "1vw" }}>
-            <h1>{title}</h1>
-            <p>Summary: {summary}</p>
-          </div>
-          <DictionaryList style={{ width: "500px" }} items={topTen} />
+          <Form variant="dark" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label style={{ color: "white" }}>Video URL</Form.Label>
+
+              <Form.Control
+                style={{ backgroundColor: "#343a40", color: "white" }}
+                ref={requestRef}
+                type="text"
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label style={{ color: "white" }}>Video Title</Form.Label>
+
+              <Form.Control
+                style={{ backgroundColor: "#343a40", color: "white" }}
+                ref={titleRef}
+                type="text"
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label style={{ color: "white" }}>Video Genre</Form.Label>
+
+              <Form.Control
+                style={{ backgroundColor: "#343a40", color: "white" }}
+                ref={genreRef}
+                type="text"
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label style={{ color: "white" }}>Class</Form.Label>
+              <Form.Select
+                ref={classRef}
+                style={{ backgroundColor: "#343a40", color: "white" }}
+                required
+              >
+                {classes.map((classType) => {
+                  return (
+                    <option
+                      key={classType.id}
+                      value={classType.title}
+                      style={{ backgroundColor: "#343a40", color: "white" }}
+                    >
+                      {classType.title}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+            </Form.Group>
+
+            {buttonType ? (
+              <Button variant="secondary" type="submit" disabled>
+                Loading...
+              </Button>
+            ) : (
+              <Button
+                variant="dark"
+                style={{ border: "2px solid gray" }}
+                type="submit"
+              >
+                Summarize
+              </Button>
+            )}
+          </Form>
         </div>
-      )}
+        {topTen && (
+          <div
+            style={{
+              display: "flex",
+              margin: "2vw 2vw",
+              flexDirection: "row",
+              border: "3px solid gray",
+              borderRadius: "10px",
+              backgroundColor: "#343a40",
+            }}
+          >
+            <div style={{ width: "50vw", padding: "1vw 2vw 1vw 1vw" }}>
+              <h1
+                style={{
+                  color: "white",
+                }}
+              >
+                {title}
+              </h1>
+              <p style={{ color: "white", height: "auto" }}>
+                Summary: {summary}
+              </p>
+            </div>
+            <DictionaryList
+              style={{
+                width: "500px",
+              }}
+              items={topTen}
+            />
+          </div>
+        )}
+        <img src={image} alt="Your SVG" />
+      </div>
     </>
   );
 }

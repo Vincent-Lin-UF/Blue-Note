@@ -38,12 +38,26 @@ const Account = () => {
   };
 
   return (
-    <div style={{ margin: "1vw" }}>
-      <h1>Account</h1>
-      <p>User Email: {user && user.email}</p>
+    <div
+      style={{
+        backgroundColor: "#000b24",
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+      }}
+    >
+      <div style={{ margin: "1vw" }}>
+        <h1 style={{ color: "white" }}>Account</h1>
+        <p style={{ color: "white" }}>User Email: {user && user.email}</p>
 
-      <Button onClick={handleLogout}>Logout</Button>
-      {/* <Button onClick={addData}>add data</Button> */}
+        <Button
+          variant="dark"
+          style={{ border: "2px solid gray" }}
+          onClick={handleLogout}
+        >
+          Logout
+        </Button>
+      </div>
     </div>
   );
 };

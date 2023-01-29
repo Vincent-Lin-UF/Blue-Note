@@ -13,14 +13,24 @@ export function DictionaryList(items) {
   let eventKeys = -1;
   return (
     <>
-      <Accordion alwaysOpen style={{ width: "50vw" }}>
+      <Accordion
+        variant="dark"
+        alwaysOpen
+        style={{ width: "50vw", color: "#003366" }}
+      >
         {itemArray.map((item) => {
           eventKeys += 1;
           return (
             <>
               <Accordion.Item eventKey={eventKeys} key={uuidV4()}>
-                <Accordion.Header>{item.name}</Accordion.Header>
-                <Accordion.Body>{item.definition}</Accordion.Body>
+                <Accordion.Header style={{ backgroundColor: "#003366" }}>
+                  {item.name}
+                </Accordion.Header>
+                <Accordion.Body
+                  style={{ color: "white", backgroundColor: "#003366" }}
+                >
+                  {item.definition}
+                </Accordion.Body>
               </Accordion.Item>
             </>
           );
