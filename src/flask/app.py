@@ -138,7 +138,7 @@ def generate_analysis(text):
     return f"""
     
     Notes: {text}
-    Find internet links based on these notes:
+    Generate information about these notes:
     """
 
 
@@ -146,7 +146,7 @@ def generate_title(text, genre):
     return f"""
     
     Video transcript: {text}
-    What are 15 key words relating to {genre} in the form of a python array with bracket syntax:
+    What are 15 key words or phrases that are nouns relating to {genre} in the video in the form of a python array with bracket syntax::
     """
 
 def get_transcript(body):
